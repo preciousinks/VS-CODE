@@ -1,0 +1,32 @@
+h1 {
+    color: rgb(81, 19, 139);
+    font-family: sans-serif;
+}
+
+p {
+    color: rgb(232, 169, 10);
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+
+ul {
+    list-style-image: url('pointer-icon.png');
+}
+
+ol {
+    list-style-type: upper-roman;
+}
+
+#menu-bar a {
+    text-decoration: none;
+    background-color: blueviolet;
+    padding: 5px;
+    display: block;
+    text-align: center;
+    color: azure;
+}
+
+#menu-bar a:hover {
+    background-color: aqua;
+    color: orange;
+    transition: 1s;
+}
