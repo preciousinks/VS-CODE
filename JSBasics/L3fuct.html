@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1 onclick="innerHTML='is awsome'">JavaScript</h1>
+    <h2 onclick="if(this.innerHTML=='Java'){this.innerHTML='Is complicated'} else {this.innerHTML='Java'}">Java</h2>
+     <h3 id="heading3" onclick="changeText()">JavaScript</h3>
+     <p id="addition"></p>
+    <script>
+        addNumbers(10, 7);
+
+        function changeText(){
+          if(document.getElementById("heading3").innerHTML=='JavaScript'){
+            document.getElementById("heading3").innerHTML='Is like python'
+        } else {
+                document.getElementById("heading3").innerHTML='JavaScript'}  
+        }
+
+        function addNumbers(num1, num2){
+            document.getElementById("addition").innerHTML = num1 + num2;
+        }
+    </script>
+</body>
+</html>
