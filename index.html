@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Phone Book</title>
 </head>
-<body>
+<body onload="fetchContacts()">
     
     <div id="table">Contacts loading...</div>
     <button id="refersh" type="button">Fefresh</button>
@@ -13,7 +13,16 @@
     
     <script src="config.js"></script>
     <script>
-
+        function fetchContacts(){
+            fetch(roothPath + "controller/get-contacts/")
+            .then(function(response) {
+                return Response.json();
+            })
+            .then(fuction(data){
+                //displayOutput(data);
+                console.log(data);
+            })
+        }
     </script>
 </body>
 </html>
