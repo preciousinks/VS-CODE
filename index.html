@@ -18,13 +18,18 @@
 
         function fetchContacts(){
             fetch(rootPath + "controller/get-contacts/")
-            .then(function(response){
-                return response.json();
-            })
-            .then(function(data){
-                displayOutput(data);
-                //console.log(data); 
-            })
+            .then(response => {
+                    if (!response.ok) { // Added response status check
+                        throw new Error('Network response was not ok: ' + response.statusText);
+                    }
+                    return response.json();
+                })
+            .then(data => displayOutput(data))
+                .catch(error => { // Added error handling
+                    console.error('Error fetching contacts:', error);
+                    document.getElementById("table").innerHTML = "Failed to load contacts.";
+                });
+            
         }
 
         function displayOutput(data){
@@ -32,8 +37,8 @@
 
             for(let a in data) {
                 output += `
-                    <tr>
-                       <td><img src="${rootPath}controller/uploads/${data[a].avator}" width="40"/></td>
+                    <tr onlick="editContact(${data[a].id})">
+                       <td><img src="${rootPath}controller/uploads/${data[a].avatar}" width="40"/></td>
                        <td><h5>${data[a].firstname}</h5></td>
                        <td><h5>${data[a].lastname}</h5></td>
                     </tr>
@@ -44,9 +49,12 @@
         }
 
         function addContact() {
-            window.open("add-contact.html", "_self");
+            window.open("add-contact-form.html", "_self");
         }
 
+        function editContact(id) {
+            window.open("edit-contact.html?id" + id, "_self");
+        }
     </script>
 </body>
 </html>
